@@ -9,7 +9,7 @@
     "default_country_code": "GB",
     "default_server_config": {
         "m.homeserver": {
-            "base_url": "http://matrix.test:8080/",
+            "base_url": "http://matrix.test:8008/",
             "server_name": "test"
         },
         "m.identity_server": {
