@@ -1,0 +1,41 @@
+# Domain settings
+matrix_domain: test
+matrix_server_fqn_matrix: matrix.test
+matrix_server_fqn_element: element.test
+
+# Disable SSL for local testing
+matrix_playbook_ssl_enabled: false
+matrix_homeserver_url: "http://{{ matrix_server_fqn_matrix }}"
+traefik_config_entrypoint_web_secure_enabled: false
+traefik_config_certificatesResolvers_acme_enabled: false
+
+matrix_homeserver_generic_secret_key: "secretpw"
+matrix_playbook_reverse_proxy_type: none
+matrix_synapse_enable_admin_api: true
+
+postgres_enabled: true
+postgres_container_image_name: "postgres:15"
+postgres_connection_username: "matrix"
+postgres_connection_password: "YourSecurePasswordHere"
+postgres_db_name: "matrix"
+postgres_host: "matrix-postgres"
+
+# Skip Docker installation on macOS
+matrix_playbook_docker_installation_enabled: true
+
+# Disable non-essential services
+mailer_enabled: false
+exim_relay_enabled: false
+prometheus_enabled: false
+prometheus_node_exporter_enabled: false
+
+# Keep only essential services
+matrix_client_element_enabled: true
+matrix_synapse_metrics_enabled: false
+
+# Disable federation for local testing
+matrix_homeserver_federation_enabled: false
+
+# Fixed port bindings for reliable access
+matrix_synapse_container_client_api_host_bind_port: 8008
+matrix_client_element_container_http_host_bind_port: 8080
