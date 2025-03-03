@@ -1,0 +1,43 @@
+{
+    "brand": "Element",
+    "branding": {
+        "auth_footer_links": null,
+        "auth_header_logo_url": "themes/element/img/logos/element-logo.svg",
+        "welcome_background_url": null
+    },
+    "bug_report_endpoint_url": "https://element.io/bugreports/submit",
+    "default_country_code": "GB",
+    "default_server_config": {
+        "m.homeserver": {
+            "base_url": "http://matrix.test:8080/",
+            "server_name": "test"
+        },
+        "m.identity_server": {
+            "base_url": ""
+        }
+    },
+    "default_theme": "light",
+    "disable_custom_urls": true,
+    "disable_guests": true,
+    "embedded_pages": {
+        "homeUrl": ""
+    },
+    "enable_presence_by_hs_url": "",
+    "integrations_jitsi_widget_url": "https://scalar.vector.im/api/widgets/jitsi.html",
+    "integrations_rest_url": "https://scalar.vector.im/api",
+    "integrations_ui_url": "https://scalar.vector.im/",
+    "integrations_widgets_urls": [
+        "https://scalar.vector.im/api"
+    ],
+    "logout_redirect_url": "",
+    "permalink_prefix": "https://matrix.to",
+    "room_directory": {
+        "servers": [
+            "matrix.org"
+        ]
+    },
+    "setting_defaults": {
+        "custom_themes": []
+    },
+    "show_labs_settings": true
+}
