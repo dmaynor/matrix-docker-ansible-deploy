@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2024 - 2025 Suguru Hirahara
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 # Quick start
 
 <!--
@@ -37,7 +43,7 @@ One of the main reasons of basic errors is using an incompatible version of requ
 
 ## Configure your DNS settings
 
-<sup>This section is optimized for this quick-start guide and is derived from the following full-documentation page: [Configuring your DNS settings](configuring-dns.md)</sup>
+<sup>This section is optimized for this quick-start guide and is derived from the following full-documentation page: [Configuring DNS settings](configuring-dns.md)</sup>
 
 After installing and configuring prerequisites, you will need to **configure DNS records**.
 

@@ -407,8 +407,6 @@ devture_systemd_service_manager_services_list_auto: |
     +
     ([{'name': 'matrix-dynamic-dns.service', 'priority': 5000, 'groups': ['matrix', 'dynamic-dns']}] if matrix_dynamic_dns_enabled else [])
     +
-    ([{'name': 'matrix-email2matrix.service', 'priority': 2000, 'groups': ['matrix', 'bridges', 'email2matrix']}] if matrix_email2matrix_enabled else [])
-    +
     ([{'name': (etherpad_identifier + '.service'), 'priority': 4000, 'groups': ['matrix', 'etherpad']}] if etherpad_enabled else [])
     +
     ([{'name': (grafana_identifier + '.service'), 'priority': 4000, 'groups': ['matrix', 'monitoring', 'grafana']}] if grafana_enabled else [])
@@ -3427,7 +3425,7 @@ matrix_corporal_systemd_required_services_list_auto: |
 
 matrix_corporal_docker_image_registry_prefix_upstream: "{{ matrix_container_global_registry_prefix_override if matrix_container_global_registry_prefix_override else matrix_corporal_docker_image_registry_prefix_upstream_default }}"
 
-matrix_corporal_container_image_self_build: "{{ matrix_architecture not in ['amd64', 'arm32', 'arm64'] }}"
+matrix_corporal_container_image_self_build: "{{ matrix_architecture not in ['amd64', 'arm64'] }}"
 
 matrix_corporal_container_http_gateway_host_bind_port: "{{ (matrix_playbook_service_host_bind_interface_prefix ~ '41080') if matrix_playbook_service_host_bind_interface_prefix else '' }}"
 matrix_corporal_container_http_api_host_bind_port: "{{ (matrix_playbook_service_host_bind_interface_prefix ~ '41081') if matrix_playbook_service_host_bind_interface_prefix else '' }}"
@@ -3711,36 +3709,6 @@ matrix_dynamic_dns_container_network: matrix-dynamic-dns
 ######################################################################
 #
 # /matrix-dynamic-dns
-#
-######################################################################
-
-######################################################################
-#
-# matrix-email2matrix
-#
-######################################################################
-
-matrix_email2matrix_enabled: false
-
-matrix_email2matrix_systemd_required_services_list_auto: |
-  {{
-    matrix_addons_homeserver_systemd_services_list
-  }}
-
-matrix_email2matrix_docker_image_registry_prefix_upstream: "{{ matrix_container_global_registry_prefix_override if matrix_container_global_registry_prefix_override else matrix_email2matrix_docker_image_registry_prefix_upstream_default }}"
-
-matrix_email2matrix_container_image_self_build: "{{ matrix_architecture not in ['amd64', 'arm32', 'arm64'] }}"
-
-matrix_email2matrix_container_network: "{{ matrix_addons_container_network }}"
-
-matrix_email2matrix_container_additional_networks_auto: |-
-  {{
-    ([] if matrix_addons_homeserver_container_network == '' else [matrix_addons_homeserver_container_network])
-  }}
-
-######################################################################
-#
-# /matrix-email2matrix
 #
 ######################################################################
 

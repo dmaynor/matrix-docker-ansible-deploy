@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2022 - 2025 Slavi Pantaleev
+# SPDX-FileCopyrightText: 2024 - 2025 MDAD project contributors
+# SPDX-FileCopyrightText: 2024 - 2025 Suguru Hirahara
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 ---
 
 - name: (Deprecation) Catch and report renamed Matrix playbook settings
@@ -476,3 +482,15 @@
 
       The following variables in your configuration need to be removed: {{ vars | dict2items | selectattr('key', 'match', 'matrix_mautrix_hangouts_.*') | map(attribute='key') | join(', ') }}
   when: "vars | dict2items | selectattr('key', 'match', 'matrix_mautrix_hangouts_.*') | list | items2dict"
+
+- name: (Deprecation) Catch and report Email2Matrix variables
+  ansible.builtin.fail:
+    msg: |-
+      The Email2Matrix service has been superseded by the Postmoogle bridge for a long time now and was completely removed from the playbook in February 2025.
+
+      Please change your configuration (`vars.yml`) to remove all `matrix_email2matrix_*` variables.
+
+      You may also wish to uninstall the bridge manually. See `docs/configuring-playbook-email2matrix.md` for more information.
+
+      The following variables in your configuration need to be removed: {{ vars | dict2items | selectattr('key', 'match', 'matrix_email2matrix_.*') | map(attribute='key') | join(', ') }}
+  when: "vars | dict2items | selectattr('key', 'match', 'matrix_email2matrix_.*') | list | items2dict"
